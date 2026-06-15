@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alex Chen — Full Stack Engineer</title>
+    <meta name="description"
+        content="Portfolio of Alex Chen, a Full Stack Engineer specializing in modern web experiences." />
+    <meta name="keywords" content="Alex Chen, Full Stack Engineer, Developer, Web Development, Portfolio" />
+    <meta name="author" content="Alex Chen" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta property="og:title" content="Alex Chen — Full Stack Engineer" />
+    <meta property="og:description"
+        content="Portfolio of Alex Chen, a Full Stack Engineer specializing in modern web experiences." />
+    <meta property="og:type" content="website" />
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@200,300,400,500,600,700,800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="page-load">
+
+    <!-- Mobile menu -->
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+        <a href="#hero" class="mobile-link">Home</a>
+        <a href="#about" class="mobile-link">About</a>
+        <a href="#projects" class="mobile-link">Projects</a>
+        <a href="#skills" class="mobile-link">Skills</a>
+        <a href="#experience" class="mobile-link">Experience</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+    </nav>
+
+    <!-- NAV -->
+    <header id="navbar" role="banner">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo" aria-label="Alex Chen — Home">
+                Muarij Shakeel<span class="dot" aria-hidden="true"></span>
+            </a>
+            <div class="nav-center-wrapper">
+                <ul class="nav-links left-links" role="list">
+                    <li><a href="#hero" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                </ul>
+                <div class="main-separator"></div>
+                <ul class="nav-links right-links" role="list">
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <div class="nav-socials" aria-label="Social links">
+                    <a href="https://github.com/muarijshakeel5" target="_blank" class="social-btn" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.165c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
+                        </svg></a>
+                    <a href="https://www.linkedin.com/in/muarijshakeel/" target="_blank" class="social-btn" aria-label="LinkedIn"><svg viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg></a>
+                </div>
+                <a href="#contact" class="btn btn-primary">Hire Me</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section id="hero" aria-label="Introduction">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-left">
+                        <div class="hero-text-card-bg">
+                            <div class="hero-text-card-inner">
+                                <div class="hero-card-topbar">
+                                    <div class="hero-available">
+                                        <span class="pulse-dot" aria-hidden="true"></span>
+                                        Available for work
+                                    </div>
+                                    <a href="resume.pdf" class="cv-ghost-pill" aria-label="Download CV" download>
+                                        CV 
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                            <polyline points="7 10 12 15 17 10"></polyline>
+                                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div class="hero-name">Muarij Shakeel</div>
+                                <div class="hero-divider"></div>
+                                <h1 class="hero-h1" id="heroHeadline">
+                                    <em>Full-Stack Developer</em><br>
+                                    &amp; Sales Specialist
+                                </h1>
+                                <p class="hero-sub">
+                                    Full-stack engineer by day, business strategist by night. I build <strong>scalable web platforms</strong>, implement <strong>intelligent AI systems</strong>, and design the <strong>sales pipelines</strong> that take them to market.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-visual">
+                        <div class="hero-deco" aria-hidden="true"></div>
+                        <div class="ref-card-wrapper" id="heroCard">
+                            <div class="hero-image-container">
+                                <img src="img.png" alt="Profile" />
+
+                                <!-- Glassmorphism Action Card -->
+                                <div class="glass-panel panel-action">
+                                    <div class="action-avatars">
+                                        <img src="https://placehold.co/40x40/ccc/fff?text=A" alt="Avatar 1" />
+                                        <img src="https://placehold.co/40x40/aaa/fff?text=B" alt="Avatar 2" />
+                                        <div class="action-add">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="action-btn">Plan new meeting</div>
+                                </div>
+                            </div>
+
+                            <!-- Floating Badges -->
+                            <div class="hero-badges-container">
+                                <div class="floating-badge badge-1">
+                                    <div class="badge-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+                                            <line x1="4" y1="22" x2="4" y2="15"></line>
+                                        </svg></div>
+                                    <span>Personal Leadership</span>
+                                </div>
+                                <div class="floating-badge badge-2">
+                                    <div class="badge-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                        </svg></div>
+                                    <span>Constructive Communication</span>
+                                </div>
+                                <div class="floating-badge badge-3">
+                                    <div class="badge-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="12" cy="7" r="4"></circle>
+                                        </svg></div>
+                                    <span>Role Awareness & Flexibility</span>
+                                </div>
+                                <div class="floating-badge badge-4">
+                                    <div class="badge-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                                        </svg></div>
+                                    <span>Result-oriented Collaboration</span>
+                                </div>
+                            </div>
+
+                            <!-- Glassmorphism Donut Card -->
+                            <div class="glass-panel panel-donut">
+                                <div class="donut-container">
+                                    <svg class="donut-chart-svg" width="140" height="140" viewBox="0 0 140 140">
+                                        <circle class="donut-bg" cx="70" cy="70" r="54"></circle>
+                                        <circle class="donut-circle" cx="70" cy="70" r="54"></circle>
+                                    </svg>
+                                    <div class="donut-center">
+                                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z">
+                                            </path>
+                                            <line x1="9" y1="9" x2="15" y2="9"></line>
+                                            <line x1="9" y1="13" x2="15" y2="13"></line>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- MARQUEE TICKER -->
+        <div class="marquee-wrap" aria-hidden="true">
+            <div class="marquee-track" id="marqueeTrack"></div>
+        </div>
+
+        <!-- STATS -->
+        <section id="stats" aria-label="Key statistics">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card reveal"><span class="stat-number" data-target="3"
+                            data-suffix="+">0</span><span class="stat-label">Years Experience</span></div>
+                    <div class="stat-card reveal" style="transition-delay:.1s"><span class="stat-number"
+                            data-target="20" data-suffix="+">0</span><span class="stat-label">Projects Shipped</span>
+                    </div>
+                    <div class="stat-card reveal" style="transition-delay:.2s"><span class="stat-number"
+                            data-target="15" data-suffix="+">0</span><span class="stat-label">Technologies
+                            Mastered</span></div>
+                    <div class="stat-card reveal" style="transition-delay:.3s"><span class="stat-number"
+                            data-target="100" data-suffix="%">0</span><span class="stat-label">Client
+                            Satisfaction</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" aria-label="About Alex Chen">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-photo-wrap reveal">
+                        <div class="about-photo-frame">
+                            <img src="about.png" alt="Muarij Shakeel working" />
+                        </div>
+                        <div class="about-deco-dot" aria-hidden="true"></div>
+                    </div>
+                    <div class="reveal" style="transition-delay:.15s">
+                        <span class="section-label">About me</span>
+                        <h2 class="about-h2">Crafting code that makes things actually work.</h2>
+                        <p class="about-p">I’m a full-stack engineer and sales strategist with a solid background in Computer Science and over three years of professional experience building products people genuinely use. Beyond the IDE, I bring extensive operational experience from the high-volume outbound sales and direct client outreach sectors, giving me a unique edge in understanding both software architecture and direct revenue-generating workflows.</p>
+                        <p class="about-p">My approach is strictly pragmatic: I build clean, maintainable code, but I care deeply about how that software impacts real-world business growth. I'm most at home in the React, Node.js, and Python ecosystems, engineering everything from scalable web platforms to intelligent, automated communication pipelines.</p>
+                        <div class="about-traits">
+                            <div class="trait-card"><span>✦</span> Full-Stack Tech</div>
+                            <div class="trait-card"><span>⚡</span> Outbound Sales</div>
+                            <div class="trait-card"><span>⬢</span> Fast Delivery</div>
+                        </div>
+                        <a href="#experience" class="about-link">Read my story <span>→</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills" aria-label="Skills and technologies">
+            <div class="container">
+                <div class="reveal" style="margin-bottom: 3.5rem;">
+                    <span class="section-label">What I work with</span>
+                    <h2 class="skills-h2">A full-stack toolkit for real-world problems.</h2>
+                </div>
+
+                <div class="blueprint-container reveal">
+                    <svg class="bp-svg" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid meet">
+                        <!-- Hub to Primaries -->
+                        <path class="bp-line core-line" id="p-h-e" d="M500,300 L250,200" data-source="hub" data-target="eng" />
+                        <path class="bp-line core-line" id="p-h-g" d="M500,300 L750,200" data-source="hub" data-target="growth" />
+                        <path class="bp-line core-line" id="p-h-w" d="M500,300 L500,500" data-source="hub" data-target="work" />
+                        
+                        <!-- Eng to Leaves -->
+                        <path class="bp-line eng-line" id="p-e-r" d="M250,200 L120,100" data-source="eng" data-target="react" />
+                        <path class="bp-line eng-line" id="p-e-d" d="M250,200 L250,80" data-source="eng" data-target="django" />
+                        <path class="bp-line eng-line" id="p-e-p" d="M250,200 L380,100" data-source="eng" data-target="python" />
+                        <path class="bp-line eng-line" id="p-e-a" d="M250,200 L120,250" data-source="eng" data-target="ai" />
+                        <path class="bp-line eng-line" id="p-e-do" d="M250,200 L250,320" data-source="eng" data-target="docker" />
+                        
+                        <!-- Growth to Leaves -->
+                        <path class="bp-line growth-line" id="p-g-l" d="M750,200 L620,100" data-source="growth" data-target="leadgen" />
+                        <path class="bp-line growth-line" id="p-g-c" d="M750,200 L750,80" data-source="growth" data-target="crm" />
+                        <path class="bp-line growth-line" id="p-g-o" d="M750,200 L880,100" data-source="growth" data-target="outreach" />
+                        <path class="bp-line growth-line" id="p-g-s" d="M750,200 L880,250" data-source="growth" data-target="sales" />
+
+                        <!-- Workflow to Leaves -->
+                        <path class="bp-line work-line" id="p-w-a" d="M500,500 L350,450" data-source="work" data-target="agile" />
+                        <path class="bp-line work-line" id="p-w-g" d="M500,500 L350,550" data-source="work" data-target="git" />
+                        <path class="bp-line work-line" id="p-w-j" d="M500,500 L650,550" data-source="work" data-target="jira" />
+                        <path class="bp-line work-line" id="p-w-f" d="M500,500 L650,450" data-source="work" data-target="figma" />
+                        
+                        <!-- Trigger Particles (JS Controlled) -->
+                        <g class="trigger-particles">
+                            <circle class="bp-trigger eng-hub" id="trig-eng" r="6" opacity="0"><animateMotion id="anim-trig-eng" dur="0.6s" begin="indefinite" path="M500,300 L250,200" fill="freeze" /></circle>
+                            <circle class="bp-trigger growth-hub" id="trig-growth" r="6" opacity="0"><animateMotion id="anim-trig-growth" dur="0.6s" begin="indefinite" path="M500,300 L750,200" fill="freeze" /></circle>
+                            <circle class="bp-trigger work-hub" id="trig-work" r="6" opacity="0"><animateMotion id="anim-trig-work" dur="0.6s" begin="indefinite" path="M500,300 L500,500" fill="freeze" /></circle>
+                        </g>
+
+                        <!-- Data Stream Particles -->
+                        <g class="particles" id="continuous-particles">
+                            <!-- WAVE 1: Synchronized hit and burst -->
+                            <!-- Hub to Primaries -->
+                            <circle class="bp-particle eng-hub" r="4"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite" path="M500,300 L250,200" /></circle>
+                            <circle class="bp-particle growth-hub" r="4"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite" path="M500,300 L750,200" /></circle>
+                            <circle class="bp-particle work-hub" r="4"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite" path="M500,300 L500,500" /></circle>
+                            
+                            <!-- Eng Leaves -->
+                            <circle class="bp-particle eng-particle" r="3"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite" path="M250,200 L120,100" /></circle>
+                            <circle class="bp-particle eng-particle" r="3"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite" path="M250,200 L250,80" /></circle>
+                            <circle class="bp-particle eng-particle" r="3"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite" path="M250,200 L380,100" /></circle>
+                            <circle class="bp-particle eng-particle" r="3"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite" path="M250,200 L120,250" /></circle>
+                            <circle class="bp-particle eng-particle" r="3"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite" path="M250,200 L250,320" /></circle>
+                            
+                            <!-- Growth Leaves -->
+                            <circle class="bp-particle growth-particle" r="3"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite" path="M750,200 L620,100" /></circle>
+                            <circle class="bp-particle growth-particle" r="3"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite" path="M750,200 L750,80" /></circle>
+                            <circle class="bp-particle growth-particle" r="3"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite" path="M750,200 L880,100" /></circle>
+                            <circle class="bp-particle growth-particle" r="3"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite" path="M750,200 L880,250" /></circle>
+
+                            <!-- Work Leaves -->
+                            <circle class="bp-particle work-particle" r="3"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite" path="M500,500 L350,450" /></circle>
+                            <circle class="bp-particle work-particle" r="3"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite" path="M500,500 L350,550" /></circle>
+                            <circle class="bp-particle work-particle" r="3"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite" path="M500,500 L650,550" /></circle>
+                            <circle class="bp-particle work-particle" r="3"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite" path="M500,500 L650,450" /></circle>
+
+                            <!-- WAVE 2: Offset by half the duration for continuous flow -->
+                            <!-- Hub to Primaries -->
+                            <circle class="bp-particle eng-hub" r="4"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite" path="M500,300 L250,200" /></circle>
+                            <circle class="bp-particle growth-hub" r="4"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite" path="M500,300 L750,200" /></circle>
+                            <circle class="bp-particle work-hub" r="4"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite" path="M500,300 L500,500" /></circle>
+                            
+                            <!-- Eng Leaves -->
+                            <circle class="bp-particle eng-particle" r="3"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite" path="M250,200 L120,100" /></circle>
+                            <circle class="bp-particle eng-particle" r="3"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite" path="M250,200 L250,80" /></circle>
+                            <circle class="bp-particle eng-particle" r="3"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite" path="M250,200 L380,100" /></circle>
+                            <circle class="bp-particle eng-particle" r="3"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite" path="M250,200 L120,250" /></circle>
+                            <circle class="bp-particle eng-particle" r="3"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite" path="M250,200 L250,320" /></circle>
+                            
+                            <!-- Growth Leaves -->
+                            <circle class="bp-particle growth-particle" r="3"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite" path="M750,200 L620,100" /></circle>
+                            <circle class="bp-particle growth-particle" r="3"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite" path="M750,200 L750,80" /></circle>
+                            <circle class="bp-particle growth-particle" r="3"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite" path="M750,200 L880,100" /></circle>
+                            <circle class="bp-particle growth-particle" r="3"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite" path="M750,200 L880,250" /></circle>
+
+                            <!-- Work Leaves -->
+                            <circle class="bp-particle work-particle" r="3"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite" path="M500,500 L350,450" /></circle>
+                            <circle class="bp-particle work-particle" r="3"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite" path="M500,500 L350,550" /></circle>
+                            <circle class="bp-particle work-particle" r="3"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite" path="M500,500 L650,550" /></circle>
+                            <circle class="bp-particle work-particle" r="3"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite" path="M500,500 L650,450" /></circle>
+                        </g>
+                    </svg>
+
+                    <!-- HUB -->
+                    <div class="bp-node hub" style="left: 50%; top: 50%;" data-node="hub">
+                        <div class="bp-glow"></div>
+                        <span>Full Stack &<br>Growth Engineer</span>
+                    </div>
+
+                    <!-- PRIMARIES (With expanding schematics) -->
+                    <div class="bp-node primary" style="left: 25%; top: 33.33%;" data-node="eng" title="Click for Case Study">
+                        <span class="node-title">Engineering</span>
+                        <div class="schematic-panel">
+                            <button class="bp-modal-close" aria-label="Close modal">×</button>
+                            <div class="bp-modal-content">
+                                <span class="bp-modal-tag">Case Study</span>
+                                <h3>AI Video Interview System (AI-VIS)</h3>
+                                <p><strong>Technical Stack:</strong> React.js, Django REST, Multimodal AI</p>
+                                <p>Engineered an intelligent screening pipeline that parses CVs and orchestrates real-time AI video interviews. By combining robust full-stack architecture with advanced facial emotion and voice sentiment models, the platform delivers highly objective candidate evaluations.</p>
+                                <div class="bp-modal-metrics">
+                                    <div class="bp-metric">
+                                        <span class="bp-metric-value bp-stat-counter" data-target="40" data-suffix="%">0%</span>
+                                        <span class="bp-metric-label">Reduction in Bias</span>
+                                    </div>
+                                    <div class="bp-metric">
+                                        <span class="bp-metric-value bp-stat-counter" data-target="30" data-suffix="%">0%</span>
+                                        <span class="bp-metric-label">Efficiency Increase</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bp-node primary" style="left: 75%; top: 33.33%;" data-node="growth" title="Click for Case Study">
+                        <span class="node-title">Growth & Ops</span>
+                        <div class="schematic-panel">
+                            <button class="bp-modal-close" aria-label="Close modal">×</button>
+                            <div class="bp-modal-content">
+                                <span class="bp-modal-tag">Case Study</span>
+                                <h3>UAC Growth Engine</h3>
+                                <p><strong>Core Focus:</strong> Lead Generation, Pipeline Automation</p>
+                                <p>Engineered multi-channel lead acquisition pipelines across diverse high-value sectors. Successfully managed complex inbound/outbound systems driving massive conversion rates for telecom giants (AT&T, Verizon) and high-profile visual feeder campaigns (WWE SummerSlam, F1).</p>
+                                <div class="bp-modal-metrics">
+                                    <div class="bp-metric">
+                                        <span class="bp-metric-value">High-Stakes</span>
+                                        <span class="bp-metric-label">B2B Penetration</span>
+                                    </div>
+                                    <div class="bp-metric">
+                                        <span class="bp-metric-value">Enterprise</span>
+                                        <span class="bp-metric-label">Account Automation</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bp-node primary" style="left: 50%; top: 83.33%;" data-node="work">
+                        <span class="node-title">Workflow</span>
+                    </div>
+
+                    <!-- LEAVES: ENG -->
+                    <div class="bp-node leaf eng-leaf" style="left: 12%; top: 16.66%;" data-node="react">
+                        <img src="https://cdn.simpleicons.org/react/ffffff" alt="React" class="node-icon" /> <span class="node-text">React</span>
+                    </div>
+                    <div class="bp-node leaf eng-leaf" style="left: 25%; top: 13.33%;" data-node="django">
+                        <img src="https://cdn.simpleicons.org/django/ffffff" alt="Django" class="node-icon" /> <span class="node-text">Django</span>
+                    </div>
+                    <div class="bp-node leaf eng-leaf" style="left: 38%; top: 16.66%;" data-node="python">
+                        <img src="https://cdn.simpleicons.org/python/ffffff" alt="Python" class="node-icon" /> <span class="node-text">Python</span>
+                    </div>
+                    <div class="bp-node leaf eng-leaf" style="left: 12%; top: 41.66%;" data-node="ai">
+                        <svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg> <span class="node-text">AI / LLMs</span>
+                    </div>
+                    <div class="bp-node leaf eng-leaf" style="left: 25%; top: 53.33%;" data-node="docker">
+                        <img src="https://cdn.simpleicons.org/docker/ffffff" alt="Docker" class="node-icon" /> <span class="node-text">Docker</span>
+                    </div>
+
+                    <!-- LEAVES: GROWTH -->
+                    <div class="bp-node leaf growth-leaf" style="left: 62%; top: 16.66%;" data-node="leadgen">
+                        <svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                        <span class="node-text">Lead Gen</span>
+                    </div>
+                    <div class="bp-node leaf growth-leaf" style="left: 75%; top: 13.33%;" data-node="crm">
+                        <svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        <span class="node-text">CRM</span>
+                    </div>
+                    <div class="bp-node leaf growth-leaf" style="left: 88%; top: 16.66%;" data-node="outreach">
+                        <svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+                        <span class="node-text">Outreach</span>
+                    </div>
+                    <div class="bp-node leaf growth-leaf" style="left: 88%; top: 41.66%;" data-node="sales">
+                        <svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                        <span class="node-text">Sales</span>
+                    </div>
+
+                    <!-- LEAVES: WORKFLOW -->
+                    <div class="bp-node leaf work-leaf" style="left: 35%; top: 75%;" data-node="agile">
+                        <svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                        <span class="node-text">Agile/Scrum</span>
+                    </div>
+                    <div class="bp-node leaf work-leaf" style="left: 35%; top: 91.66%;" data-node="git">
+                        <img src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub" class="node-icon" /> <span class="node-text">Git/GitHub</span>
+                    </div>
+                    <div class="bp-node leaf work-leaf" style="left: 65%; top: 91.66%;" data-node="jira">
+                        <img src="https://cdn.simpleicons.org/jira/ffffff" alt="Jira" class="node-icon" /> <span class="node-text">Jira/Data Tracking</span>
+                    </div>
+                    <div class="bp-node leaf work-leaf" style="left: 65%; top: 75%;" data-node="figma">
+                        <img src="https://cdn.simpleicons.org/figma/ffffff" alt="Figma" class="node-icon" /> <span class="node-text">Figma</span>
+                    </div>
+                </div>
+                <!-- Overlay for expanded schematics -->
+                <div class="bp-modal-overlay" id="bp-modal-overlay"></div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects" aria-label="Featured projects">
+            <div class="container">
+                <div class="reveal" style="margin-bottom:3rem">
+                    <span class="section-label">Selected Work</span>
+                    <h2 class="projects-h2">Things I've built that I'm proud of.</h2>
+                </div>
+                <div class="projects-grid">
+                    <article class="project-card reveal">
+                        <div class="project-img"><img
+                                src="./aivis.jpeg"
+                                alt="AI-VIS Dashboard" loading="lazy" /></div>
+                        <div class="project-body">
+                            <span class="project-tag">AI/ML SaaS</span>
+                            <h3 class="project-title">AI-VIS (AI Video Interview System)</h3>
+                            <p class="project-desc">A full-stack, AI-powered recruitment infrastructure that autonomously parses CVs, schedules interviews 24/7, and performs real-time multimodal analysis (facial and voice sentiment). Achieved a 40% reduction in hiring bias and a 30% increase in HR screening efficiency during internal testing.</p>
+                            <div class="project-stack">
+                                <span class="stack-pill">React.js</span>
+                                <span class="stack-pill">Django</span>
+                                <span class="stack-pill">Python</span>
+                                <span class="stack-pill">AWS</span>
+                                <span class="stack-pill">Docker</span>
+                                <span class="stack-pill">AI/LLM Integration</span>
+                            </div>
+                            <div class="project-links"><a href="#" class="project-link">Live Demo →</a><a href="#"
+                                    class="project-link">GitHub →</a></div>
+                        </div>
+                    </article>
+                    <article class="project-card reveal" style="transition-delay:.1s">
+                        <div class="project-img"><img src="./b2b_growth.png"
+                                alt="B2B Growth Data Pipeline" loading="lazy" /></div>
+                        <div class="project-body">
+                            <span class="project-tag">Growth / Ops</span>
+                            <h3 class="project-title">B2B Growth Automation Engine</h3>
+                            <p class="project-desc">Engineered automated lead-generation and appointment pipelines for high-stakes enterprise clients and specialized industries. Successfully managed outbound growth strategies for major entities, including F1, WWE, First Choice Business Brokers, RAI Media, and Supreme Maintenance Organization. Developed custom CRM integrations to manage complex communication workflows and optimize international lead conversion at scale.</p>
+                            <div class="project-stack">
+                                <span class="stack-pill">Python (Automation)</span>
+                                <span class="stack-pill">CRM Systems</span>
+                                <span class="stack-pill">Pipeline Engineering</span>
+                                <span class="stack-pill">Data Tracking</span>
+                            </div>
+                            <div class="project-links"><a href="#" class="project-link">View Case Study →</a></div>
+                        </div>
+                    </article>
+                    <article class="project-card reveal" style="transition-delay:.2s">
+                        <div class="project-img"><img src="./uk.png"
+                                alt="Moons Burger E-Commerce" loading="lazy" /></div>
+                        <div class="project-body">
+                            <span class="project-tag">Mobile & Web</span>
+                            <h3 class="project-title">Moons Burger E-Commerce</h3>
+                            <p class="project-desc">Developed a comprehensive digital commerce system for a UK-based food business, integrating a custom web platform (React/FastAPI) and a high-performance cross-platform mobile app (React Native/Expo 56, Gluestack v5). The system features visual menu management, multi-status live order tracking, and an integrated POS/admin flow, all using a bold red-accented design language to enhance user engagement.</p>
+                            <div class="project-stack">
+                                <span class="stack-pill">React</span>
+                                <span class="stack-pill">FastAPI</span>
+                                <span class="stack-pill">React Native Expo 56</span>
+                                <span class="stack-pill">Gluestack v5</span>
+                            </div>
+                            <div class="project-links"><a href="#" class="project-link">Live Demo →</a><a href="#"
+                                    class="project-link">GitHub →</a></div>
+                        </div>
+                    </article>
+                </div>
+                <div class="projects-footer reveal"><a href="#" class="btn btn-outline">View All Projects</a></div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section id="experience" aria-label="Work experience">
+            <div class="container">
+                <div class="reveal" style="margin-bottom:3.5rem">
+                    <span class="section-label">Career</span>
+                    <h2 class="exp-h2">Where I've made an impact.</h2>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-entry reveal">
+                        <div class="timeline-year-col"><span class="year-badge">2024</span></div>
+                        <div class="timeline-body">
+                            <p class="timeline-role">Lead Developer</p>
+                            <p class="timeline-company">AI Video Interview System (AI-VIS)</p>
+                            <p class="timeline-duration">Jan 2024 – Present</p>
+                            <ul class="timeline-bullets">
+                                <li><strong>Full-Stack Architecture:</strong> Architected and deployed a comprehensive recruitment platform using React.js and Django, supporting complex user roles for HR/Company job posting and candidate application management.</li>
+                                <li><strong>Intelligent Screening Pipeline:</strong> Developed a CV-parsing and analysis engine that autonomously validates candidate relevancy against job descriptions before triggering interview workflows.</li>
+                                <li><strong>Automated Scheduling:</strong> Engineered a 24/7 self-service scheduling system, allowing candidates to book and conduct interviews at their convenience.</li>
+                                <li><strong>Real-Time AI Interviewer:</strong> Implemented a video-based AI interview engine that dynamically generates context-aware questions based on the job description.</li>
+                                <li><strong>Multimodal Analysis:</strong> Integrated advanced AI models to perform real-time facial emotion detection and voice sentiment analysis during live interviews.</li>
+                                <li><strong>Automated Evaluation:</strong> Built a post-interview dashboard that processes multimodal data to provide immediate, objective performance results, delivering a 40% reduction in hiring bias and a 30% increase in HR screening efficiency.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-entry reveal">
+                        <div class="timeline-year-col"><span class="year-badge">2023</span></div>
+                        <div class="timeline-body">
+                            <p class="timeline-role">Project Coordinator & B2B Operations Specialist</p>
+                            <p class="timeline-company">UA Communications</p>
+                            <p class="timeline-duration">Jan 2023 – Present</p>
+                            <ul class="timeline-bullets">
+                                <li><strong>Lead Generation & Growth Engineering:</strong> Engineered multi-channel lead acquisition pipelines across diverse high-value sectors, including energy, telecommunications, and commercial real estate.</li>
+                                <li><strong>Performance-Driven Sales:</strong> Achieved massive conversion rates for major US-market utility and telecom providers—including National Gas & Electric, Green Light and Energy, AT&T, Frontier, T-Mobile, and Verizon—by managing complex inbound pipelines to drive direct revenue growth.</li>
+                                <li><strong>Strategic Market Penetration:</strong> Executed targeted lead generation and cold-calling campaigns for specialized industries; notably, worked with Montie Barnes, a broker at First Choice Business Brokers, to identify and qualify warm leads—specifically CEOs looking to exit or sell their businesses.</li>
+                                <li><strong>Enterprise Account Management:</strong> Managed appointment scheduling for high-profile visual feeder campaigns, including major events such as WWE SummerSlam, MLB All-Star Weekend, and Formula 1.</li>
+                                <li><strong>Operational Optimization:</strong> Provided lead generation services for RAI Media, cost segregation auditing firms, and Ms. Diana Wilson at Supreme Maintenance Organization, while concurrently managing property acquisition leads for local real estate investors.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section id="testimonials" aria-label="Testimonials">
+            <div class="container">
+                <span class="section-label test-label">Kind words</span>
+                <h2 class="test-h2">What people say about working with me.</h2>
+                <div class="test-grid">
+                    <div class="test-card reveal">
+                        <div class="test-stars" aria-label="5 stars">★★★★★</div>
+                        <p class="test-quote">"Muarij’s work on our recruitment platform was transformative. He didn't just build the requested features; he architected a robust AI pipeline that directly solved our bias and efficiency challenges. It’s rare to find an engineer who balances deep technical complexity with such a clear focus on the product's business goals."</p>
+                        <div class="test-author">
+                            <div class="test-avatar">TD</div>
+                            <div>
+                                <p class="test-name">Technical Director</p>
+                                <p class="test-role">AI-VIS & Recruitment Platform</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="test-card reveal" style="transition-delay:.1s">
+                        <div class="test-stars" aria-label="5 stars">★★★★★</div>
+                        <p class="test-quote">"I’ve worked with many lead generation specialists, but Muarij brings a level of operational discipline that is unmatched. His ability to automate and manage complex, high-stakes communication pipelines for our international accounts was pivotal in hitting our quarterly growth milestones. He treats the business's success as his own."</p>
+                        <div class="test-author">
+                            <div class="test-avatar">OM</div>
+                            <div>
+                                <p class="test-name">Operations Manager</p>
+                                <p class="test-role">Enterprise B2B Growth</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="test-card reveal" style="transition-delay:.2s">
+                        <div class="test-stars" aria-label="5 stars">★★★★★</div>
+                        <p class="test-quote">"Muarij is the rare breed of engineer who understands both the code and the customer. Whether he’s building out complex integrations or optimizing our outbound growth strategies, his contributions are consistently high-impact. His ability to bridge the gap between technical infrastructure and business growth has made him an invaluable partner."</p>
+                        <div class="test-author">
+                            <div class="test-avatar">HP</div>
+                            <div>
+                                <p class="test-name">Head of Product</p>
+                                <p class="test-role">Product Strategy & Ops</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" aria-label="Contact">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="reveal">
+                        <span class="section-label">Get in touch</span>
+                        <h2 class="contact-h2">Let's build something great together.</h2>
+                        <p class="contact-sub">I'm open to full-time roles, contract work, and interesting side
+                            projects. If you've got something in mind, send a message — I respond within 48 hours.</p>
+                        <ul class="contact-details">
+                            <li><span class="ci">✉️</span><a href="mailto:muarijshakeel5@gmail.com" style="color: inherit; text-decoration: none;">muarijshakeel5@gmail.com</a></li>
+                            <li><span class="ci">🔗</span><a href="https://www.linkedin.com/in/muarijshakeel/" target="_blank" style="color: inherit; text-decoration: none;">linkedin.com/in/muarijshakeel</a></li>
+                            <li><span class="ci">📍</span><span>Remote — Based in Amsterdam</span></li>
+                        </ul>
+                        <div class="avail-badge"><span class="pulse-dot"></span>Available from July 2025</div>
+                    </div>
+                    <div class="reveal" style="transition-delay:.15s">
+                        <form class="contact-form" id="contactForm" novalidate>
+                            <div class="form-row">
+                                <div class="form-group"><label for="fname">Name</label><input type="text" id="fname"
+                                        placeholder="Your name" autocomplete="name" /></div>
+                                <div class="form-group"><label for="femail">Email</label><input type="email" id="femail"
+                                        placeholder="your@email.com" autocomplete="email" /></div>
+                            </div>
+                            <div class="form-group"><label for="fmessage">Message</label><textarea id="fmessage"
+                                    placeholder="Tell me about your project…"></textarea></div>
+                            <button type="submit" class="btn btn-primary" style="align-self:flex-start">Send Message
+                                →</button>
+                            <p id="form-success"
+                                style="display:none;color:var(--color-accent-dark);font-size:.88rem;font-weight:600">✓
+                                Message sent! I'll get back to you shortly.</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer role="contentinfo" class="minimal-footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-left">
+                    <span class="footer-copyright">© 2026 Muarij Shakeel. All rights reserved.</span>
+                </div>
+                <div class="footer-right">
+                    <a href="mailto:muarijshakeel5@gmail.com" class="footer-link">Email</a>
+                    <a href="https://www.linkedin.com/in/muarijshakeel/" target="_blank" class="footer-link">LinkedIn</a>
+                    <a href="https://github.com/muarijshakeel5" target="_blank" class="footer-link">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js" defer></script>
+</body>
+
+</html>
