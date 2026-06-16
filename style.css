@@ -477,9 +477,10 @@
         @media (max-width: 768px) {
             .nav-socials {
                 display: flex !important;
-                width: 80px !important;
+                width: auto !important;
                 height: 32px !important;
-                gap: 4px !important;
+                padding: 0 0.35rem !important;
+                gap: 6px !important;
                 margin-right: 0.25rem;
             }
 
@@ -498,8 +499,15 @@
             }
 
             #navbar {
-                width: calc(100% - 1.5rem);
+                left: 0.75rem;
+                right: 0.75rem;
+                width: auto;
+                transform: none;
                 padding: 0.35rem 0.5rem;
+            }
+
+            #navbar.nav-hidden {
+                transform: translateY(calc(-100% - 2rem)) !important;
             }
 
             .nav-inner {
@@ -1202,23 +1210,23 @@
 
             .panel-action {
                 right: -5%;
-                padding: 0.5rem 0.9rem;
-                gap: 0.6rem;
+                padding: 0.35rem 0.75rem;
+                gap: 0.5rem;
                 transform: scale(0.85);
             }
 
             .action-avatars img {
-                width: 26px;
-                height: 26px;
+                width: 24px;
+                height: 24px;
             }
 
             .action-add {
-                width: 26px;
-                height: 26px;
+                width: 24px;
+                height: 24px;
             }
 
             .action-btn {
-                padding: 0.35rem 0.75rem;
+                padding: 0.25rem 0.65rem;
                 font-size: 0.72rem;
             }
 
@@ -1285,6 +1293,7 @@
             }
 
             .hero-image-container {
+                display: block !important;
                 position: relative;
                 width: 100%;
             }
@@ -1347,6 +1356,24 @@
                 animation: coinFlip 5s infinite ease-in-out !important;
                 transform-style: preserve-3d !important;
                 box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+                padding: 0.25rem 0.5rem !important;
+                gap: 0.4rem !important;
+            }
+
+            .ref-card-wrapper .panel-action .action-avatars img,
+            .ref-card-wrapper .panel-action .action-add {
+                width: 20px !important;
+                height: 20px !important;
+            }
+
+            .ref-card-wrapper .panel-action .action-add svg {
+                width: 12px !important;
+                height: 12px !important;
+            }
+
+            .ref-card-wrapper .panel-action .action-btn {
+                padding: 0.2rem 0.5rem !important;
+                font-size: 0.68rem !important;
             }
         }
 

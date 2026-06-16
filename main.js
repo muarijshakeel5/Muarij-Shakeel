@@ -267,7 +267,7 @@
             /* ══ HERO CARD HEIGHT MATCHING FOR RESPONSIVE ═══════════════ */
             const matchHeroCardsHeight = () => {
                 const textCard = document.querySelector('.hero-text-card-bg');
-                const visualImage = document.querySelector('.ref-card-wrapper > img');
+                const visualImage = document.querySelector('.ref-card-wrapper img');
                 if (!textCard || !visualImage) return;
 
                 if (window.innerWidth <= 900) {
