@@ -41,6 +41,14 @@
                     document.body.style.overflow = '';
                 });
             });
+            document.addEventListener('click', (e) => {
+                if (mobileMenu.classList.contains('open') && !mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                    hamburger.classList.remove('open');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                    mobileMenu.classList.remove('open');
+                    document.body.style.overflow = '';
+                }
+            });
 
             /* ══ SCROLL REVEAL ══════════════════════════════════════════ */
             const revealObs = new IntersectionObserver(entries => {
@@ -257,12 +265,56 @@
             /* ══ CONTACT FORM ══════════════════════════════════════════ */
             const form = document.getElementById('contactForm');
             const successMsg = document.getElementById('form-success');
-            form.addEventListener('submit', e => {
-                e.preventDefault();
-                const btn = form.querySelector('button[type=submit]');
-                btn.textContent = 'Sending…'; btn.disabled = true;
-                setTimeout(() => { form.reset(); btn.style.display = 'none'; successMsg.style.display = 'block'; }, 1200);
-            });
+            const errorMsg = document.getElementById('form-error');
+
+            if (form) {
+                // Replace with your EmailJS public key
+                if (typeof emailjs !== 'undefined') {
+                    emailjs.init("YOUR_PUBLIC_KEY");
+                }
+
+                form.addEventListener('submit', e => {
+                    e.preventDefault();
+                    
+                    const name = form.querySelector('#fname').value.trim();
+                    const email = form.querySelector('#femail').value.trim();
+                    const message = form.querySelector('#fmessage').value.trim();
+                    
+                    if (!name || !email || !message) {
+                        alert('Please fill out all fields.');
+                        return;
+                    }
+                    
+                    const btn = form.querySelector('button[type=submit]');
+                    const originalBtnText = btn.textContent;
+                    btn.textContent = 'Sending…'; 
+                    btn.disabled = true;
+                    if (successMsg) successMsg.style.display = 'none';
+                    if (errorMsg) errorMsg.style.display = 'none';
+                    
+                    if (typeof emailjs === 'undefined') {
+                        console.error('EmailJS SDK not loaded.');
+                        btn.textContent = originalBtnText;
+                        btn.disabled = false;
+                        if (errorMsg) errorMsg.style.display = 'block';
+                        return;
+                    }
+
+                    // Replace with your EmailJS service ID, template ID
+                    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form)
+                        .then(() => {
+                            form.reset();
+                            btn.style.display = 'none';
+                            if (successMsg) successMsg.style.display = 'block';
+                        })
+                        .catch((error) => {
+                            console.error('EmailJS Error:', error);
+                            btn.textContent = originalBtnText;
+                            btn.disabled = false;
+                            if (errorMsg) errorMsg.style.display = 'block';
+                        });
+                });
+            }
 
             /* ══ HERO CARD HEIGHT MATCHING FOR RESPONSIVE ═══════════════ */
             const matchHeroCardsHeight = () => {
