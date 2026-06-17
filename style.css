@@ -892,60 +892,88 @@
         }
 
         .hero-badges-container {
-            position: absolute;
-            top: 2rem;
-            right: -15%;
-            left: auto;
+            position: relative;
+            margin: 4rem auto 0;
             display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 1.2rem;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0; /* Remove gap for unified dock look */
             z-index: 5;
+            width: max-content;
+            max-width: 100%;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.5rem;
+            border-radius: 100px;
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            border-bottom-color: rgba(255, 255, 255, 0.2);
+            border-right-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.4s ease, backdrop-filter 0.4s ease, -webkit-backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .hero-badges-container:hover {
+            transform: translateY(-8px);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
         }
 
         .floating-badge {
             position: relative;
-            background: #E8F5E1;
-            color: #333;
-            border-radius: 99px;
-            padding: 0.5rem 1.2rem 0.5rem 0.5rem;
+            background: transparent;
+            color: #555;
+            border-radius: 100px;
+            padding: 0.8rem 1.5rem;
             display: flex;
             align-items: center;
             gap: 0.8rem;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 500;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
             white-space: nowrap;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
             cursor: pointer;
         }
 
         .floating-badge:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 16px 32px rgba(0,0,0,0.12);
+            transform: translateY(-2px);
+            background: #F4FBF0;
+            color: #1a1a1a;
+            box-shadow: 0 4px 12px rgba(123, 184, 64, 0.1);
         }
 
         .badge-icon {
-            width: 28px;
-            height: 28px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
-            background: #C6F564;
+            background: #E8F5E1;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
             display: flex;
             align-items: center;
             justify-content: center;
+            color: #4CAF50;
+            transition: all 0.3s ease;
+        }
+
+        .floating-badge:hover .badge-icon {
+            background: #C6F564;
             color: #2D5A1B;
+            transform: scale(1.1) rotate(5deg);
         }
 
-        @keyframes popIn {
-            0% { opacity: 0; margin-top: 40px; }
-            60% { opacity: 1; margin-top: -10px; }
-            100% { opacity: 1; margin-top: 0; }
+        @keyframes popInUp {
+            0% { opacity: 0; transform: translateY(40px); }
+            60% { opacity: 1; transform: translateY(-10px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
-        .badge-1 { animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both; margin-right: 0; margin-left: 0; }
-        .badge-2 { animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both; margin-right: 1.5rem; margin-left: 0; }
-        .badge-3 { animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s both; margin-right: 0; margin-left: 0; }
-        .badge-4 { animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.7s both; margin-right: 1.5rem; margin-left: 0; }
+        .badge-1 { animation: popInUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both; margin: 0 !important; }
+        .badge-2 { animation: popInUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both; margin: 0 !important; }
+        .badge-3 { animation: popInUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s both; margin: 0 !important; }
+        .badge-4 { animation: popInUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.7s both; margin: 0 !important; }
 
         .glass-panel {
             position: absolute;
@@ -3047,6 +3075,47 @@
     color: var(--eco-muted);
 }
 .skills-ecosystem .closing a { color: var(--eco-accent); text-decoration: none; border-bottom: 1px solid currentColor; }
+
+/* Responsive Adjustments for Hero Floating Elements on narrower desktops */
+@media (max-width: 1200px) {
+    .hero-badges-container {
+        gap: 0.8rem;
+    }
+    .floating-badge {
+        font-size: 0.75rem !important;
+        padding: 0.4rem 1rem 0.4rem 0.4rem !important;
+    }
+    .badge-icon {
+        width: 22px !important;
+        height: 22px !important;
+    }
+    .badge-icon svg {
+        width: 12px !important;
+        height: 12px !important;
+    }
+    .panel-donut {
+        right: -5% !important;
+        width: 160px !important;
+        top: 13.5rem !important;
+    }
+    .donut-container {
+        width: 100px !important;
+        height: 100px !important;
+    }
+    .donut-chart {
+        width: 60px !important;
+        height: 60px !important;
+    }
+    .donut-center {
+        width: 38px !important;
+        height: 38px !important;
+    }
+    .panel-action {
+        transform: scale(0.85) !important;
+        transform-origin: bottom right !important;
+        right: 0 !important;
+    }
+}
 
 @media (max-width: 992px) {
     .skills-ecosystem .visual-stage {
