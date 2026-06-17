@@ -232,103 +232,22 @@
                 <div class="reveal" style="margin-bottom: 3.5rem;">
                     <span class="section-label">What I work with</span>
                     <h2 class="skills-h2">A full-stack toolkit for real-world problems.</h2>
-                </div>
-
-                <div class="blueprint-container reveal">
-                    <svg class="bp-svg" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid meet">
-                        <!-- Hub to Primaries -->
-                        <path class="bp-line core-line" id="p-h-e" d="M500,300 L250,200" data-source="hub" data-target="eng" />
-                        <path class="bp-line core-line" id="p-h-g" d="M500,300 L750,200" data-source="hub" data-target="growth" />
-                        <path class="bp-line core-line" id="p-h-w" d="M500,300 L500,500" data-source="hub" data-target="work" />
-                        
-                        <!-- Eng to Leaves -->
-                        <path class="bp-line eng-line" id="p-e-r" d="M250,200 L120,100" data-source="eng" data-target="react" />
-                        <path class="bp-line eng-line" id="p-e-d" d="M250,200 L250,80" data-source="eng" data-target="django" />
-                        <path class="bp-line eng-line" id="p-e-p" d="M250,200 L380,100" data-source="eng" data-target="python" />
-                        <path class="bp-line eng-line" id="p-e-a" d="M250,200 L120,250" data-source="eng" data-target="ai" />
-                        <path class="bp-line eng-line" id="p-e-do" d="M250,200 L250,320" data-source="eng" data-target="docker" />
-                        
-                        <!-- Growth to Leaves -->
-                        <path class="bp-line growth-line" id="p-g-l" d="M750,200 L620,100" data-source="growth" data-target="leadgen" />
-                        <path class="bp-line growth-line" id="p-g-c" d="M750,200 L750,80" data-source="growth" data-target="crm" />
-                        <path class="bp-line growth-line" id="p-g-o" d="M750,200 L880,100" data-source="growth" data-target="outreach" />
-                        <path class="bp-line growth-line" id="p-g-s" d="M750,200 L880,250" data-source="growth" data-target="sales" />
-
-                        <!-- Workflow to Leaves -->
-                        <path class="bp-line work-line" id="p-w-a" d="M500,500 L350,450" data-source="work" data-target="agile" />
-                        <path class="bp-line work-line" id="p-w-g" d="M500,500 L350,550" data-source="work" data-target="git" />
-                        <path class="bp-line work-line" id="p-w-j" d="M500,500 L650,550" data-source="work" data-target="jira" />
-                        <path class="bp-line work-line" id="p-w-f" d="M500,500 L650,450" data-source="work" data-target="figma" />
-                        
-                        <!-- Trigger Particles (JS Controlled) -->
-                        <g class="trigger-particles">
-                            <circle class="bp-trigger eng-hub" id="trig-eng" r="6" opacity="0"><animateMotion id="anim-trig-eng" dur="0.6s" begin="indefinite" path="M500,300 L250,200" fill="freeze" /></circle>
-                            <circle class="bp-trigger growth-hub" id="trig-growth" r="6" opacity="0"><animateMotion id="anim-trig-growth" dur="0.6s" begin="indefinite" path="M500,300 L750,200" fill="freeze" /></circle>
-                            <circle class="bp-trigger work-hub" id="trig-work" r="6" opacity="0"><animateMotion id="anim-trig-work" dur="0.6s" begin="indefinite" path="M500,300 L500,500" fill="freeze" /></circle>
-                        </g>
-
-                        <!-- Data Stream Particles -->
-                        <g class="particles" id="continuous-particles">
-                            <!-- WAVE 1: Synchronized hit and burst -->
-                            <!-- Hub to Primaries -->
-                            <circle class="bp-particle eng-hub" r="4"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite" path="M500,300 L250,200" /></circle>
-                            <circle class="bp-particle growth-hub" r="4"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite" path="M500,300 L750,200" /></circle>
-                            <circle class="bp-particle work-hub" r="4"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite" path="M500,300 L500,500" /></circle>
-                            
-                            <!-- Eng Leaves -->
-                            <circle class="bp-particle eng-particle" r="3"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite" path="M250,200 L120,100" /></circle>
-                            <circle class="bp-particle eng-particle" r="3"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite" path="M250,200 L250,80" /></circle>
-                            <circle class="bp-particle eng-particle" r="3"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite" path="M250,200 L380,100" /></circle>
-                            <circle class="bp-particle eng-particle" r="3"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite" path="M250,200 L120,250" /></circle>
-                            <circle class="bp-particle eng-particle" r="3"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite" path="M250,200 L250,320" /></circle>
-                            
-                            <!-- Growth Leaves -->
-                            <circle class="bp-particle growth-particle" r="3"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite" path="M750,200 L620,100" /></circle>
-                            <circle class="bp-particle growth-particle" r="3"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite" path="M750,200 L750,80" /></circle>
-                            <circle class="bp-particle growth-particle" r="3"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite" path="M750,200 L880,100" /></circle>
-                            <circle class="bp-particle growth-particle" r="3"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite" path="M750,200 L880,250" /></circle>
-
-                            <!-- Work Leaves -->
-                            <circle class="bp-particle work-particle" r="3"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite" path="M500,500 L350,450" /></circle>
-                            <circle class="bp-particle work-particle" r="3"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite" path="M500,500 L350,550" /></circle>
-                            <circle class="bp-particle work-particle" r="3"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite" path="M500,500 L650,550" /></circle>
-                            <circle class="bp-particle work-particle" r="3"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite" path="M500,500 L650,450" /></circle>
-
-                            <!-- WAVE 2: Offset by half the duration for continuous flow -->
-                            <!-- Hub to Primaries -->
-                            <circle class="bp-particle eng-hub" r="4"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite" path="M500,300 L250,200" /></circle>
-                            <circle class="bp-particle growth-hub" r="4"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite" path="M500,300 L750,200" /></circle>
-                            <circle class="bp-particle work-hub" r="4"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite" path="M500,300 L500,500" /></circle>
-                            
-                            <!-- Eng Leaves -->
-                            <circle class="bp-particle eng-particle" r="3"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite" path="M250,200 L120,100" /></circle>
-                            <circle class="bp-particle eng-particle" r="3"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite" path="M250,200 L250,80" /></circle>
-                            <circle class="bp-particle eng-particle" r="3"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite" path="M250,200 L380,100" /></circle>
-                            <circle class="bp-particle eng-particle" r="3"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite" path="M250,200 L120,250" /></circle>
-                            <circle class="bp-particle eng-particle" r="3"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite" path="M250,200 L250,320" /></circle>
-                            
-                            <!-- Growth Leaves -->
-                            <circle class="bp-particle growth-particle" r="3"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite" path="M750,200 L620,100" /></circle>
-                            <circle class="bp-particle growth-particle" r="3"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite" path="M750,200 L750,80" /></circle>
-                            <circle class="bp-particle growth-particle" r="3"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite" path="M750,200 L880,100" /></circle>
-                            <circle class="bp-particle growth-particle" r="3"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite" path="M750,200 L880,250" /></circle>
-
-                            <!-- Work Leaves -->
-                            <circle class="bp-particle work-particle" r="3"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite" path="M500,500 L350,450" /></circle>
-                            <circle class="bp-particle work-particle" r="3"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite" path="M500,500 L350,550" /></circle>
-                            <circle class="bp-particle work-particle" r="3"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite" path="M500,500 L650,550" /></circle>
-                            <circle class="bp-particle work-particle" r="3"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite" path="M500,500 L650,450" /></circle>
-                        </g>
+                        <div class="blueprint-container reveal">
+                    <svg class="bp-svg" id="bp-svg" width="100%" height="100%" style="position: absolute; top: 0; left: 0; pointer-events: none; z-index: 0;">
+                        <!-- Dynamically populated by JS -->
+                        <g id="bp-lines"></g>
+                        <g id="bp-triggers"></g>
+                        <g id="bp-particles" class="particles"></g>
                     </svg>
 
-                    <!-- HUB -->
+                    <!-- CORE HUB -->    <!-- HUB -->
                     <div class="bp-node hub" style="left: 50%; top: 50%;" data-node="hub">
                         <div class="bp-glow"></div>
                         <span>Full Stack &<br>Growth Engineer</span>
                     </div>
 
                     <!-- PRIMARIES (With expanding schematics) -->
-                    <div class="bp-node primary" style="left: 25%; top: 33.33%;" data-node="eng" title="Click for Case Study">
+                    <div class="bp-node primary" style="left: 25%; top: 33.33%;" data-node="eng" data-parent="hub" title="Click for Case Study">
                         <span class="node-title">Engineering</span>
                         <div class="schematic-panel">
                             <button class="bp-modal-close" aria-label="Close modal">×</button>
@@ -351,7 +270,7 @@
                         </div>
                     </div>
                     
-                    <div class="bp-node primary" style="left: 75%; top: 33.33%;" data-node="growth" title="Click for Case Study">
+                    <div class="bp-node primary" style="left: 75%; top: 33.33%;" data-node="growth" data-parent="hub" title="Click for Case Study">
                         <span class="node-title">Growth & Ops</span>
                         <div class="schematic-panel">
                             <button class="bp-modal-close" aria-label="Close modal">×</button>
@@ -374,92 +293,62 @@
                         </div>
                     </div>
                     
-                    <div class="bp-node primary" style="left: 50%; top: 83.33%;" data-node="work">
+                    <div class="bp-node primary" style="left: 50%; top: 83.33%;" data-node="work" data-parent="hub">
                         <span class="node-title">Workflow</span>
                     </div>
 
                     <!-- LEAVES: ENG -->
-                    <div class="bp-node leaf eng-leaf" style="left: 12%; top: 16.66%;" data-node="react">
+                    <div class="bp-node leaf eng-leaf" style="left: 12%; top: 16.66%;" data-node="react" data-parent="eng">
                         <img src="https://cdn.simpleicons.org/react/ffffff" alt="React" class="node-icon" /> <span class="node-text">React</span>
                     </div>
-                    <div class="bp-node leaf eng-leaf" style="left: 25%; top: 13.33%;" data-node="django">
+                    <div class="bp-node leaf eng-leaf" style="left: 25%; top: 13.33%;" data-node="django" data-parent="eng">
                         <img src="https://cdn.simpleicons.org/django/ffffff" alt="Django" class="node-icon" /> <span class="node-text">Django</span>
                     </div>
-                    <div class="bp-node leaf eng-leaf" style="left: 38%; top: 16.66%;" data-node="python">
+                    <div class="bp-node leaf eng-leaf" style="left: 38%; top: 16.66%;" data-node="python" data-parent="eng">
                         <img src="https://cdn.simpleicons.org/python/ffffff" alt="Python" class="node-icon" /> <span class="node-text">Python</span>
                     </div>
-                    <div class="bp-node leaf eng-leaf" style="left: 12%; top: 41.66%;" data-node="ai">
+                    <div class="bp-node leaf eng-leaf" style="left: 12%; top: 41.66%;" data-node="ai" data-parent="eng">
                         <svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg> <span class="node-text">AI / LLMs</span>
                     </div>
-                    <div class="bp-node leaf eng-leaf" style="left: 25%; top: 53.33%;" data-node="docker">
+                    <div class="bp-node leaf eng-leaf" style="left: 25%; top: 53.33%;" data-node="docker" data-parent="eng">
                         <img src="https://cdn.simpleicons.org/docker/ffffff" alt="Docker" class="node-icon" /> <span class="node-text">Docker</span>
                     </div>
 
                     <!-- LEAVES: GROWTH -->
-                    <div class="bp-node leaf growth-leaf" style="left: 62%; top: 16.66%;" data-node="leadgen">
+                    <div class="bp-node leaf growth-leaf" style="left: 62%; top: 16.66%;" data-node="leadgen" data-parent="growth">
                         <svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
                         <span class="node-text">Lead Gen</span>
                     </div>
-                    <div class="bp-node leaf growth-leaf" style="left: 75%; top: 13.33%;" data-node="crm">
+                    <div class="bp-node leaf growth-leaf" style="left: 75%; top: 13.33%;" data-node="crm" data-parent="growth">
                         <svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                         <span class="node-text">CRM</span>
                     </div>
-                    <div class="bp-node leaf growth-leaf" style="left: 88%; top: 16.66%;" data-node="outreach">
+                    <div class="bp-node leaf growth-leaf" style="left: 88%; top: 16.66%;" data-node="outreach" data-parent="growth">
                         <svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
                         <span class="node-text">Outreach</span>
                     </div>
-                    <div class="bp-node leaf growth-leaf" style="left: 88%; top: 41.66%;" data-node="sales">
+                    <div class="bp-node leaf growth-leaf" style="left: 88%; top: 41.66%;" data-node="sales" data-parent="growth">
                         <svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
                         <span class="node-text">Sales</span>
                     </div>
 
                     <!-- LEAVES: WORKFLOW -->
-                    <div class="bp-node leaf work-leaf" style="left: 35%; top: 75%;" data-node="agile">
+                    <div class="bp-node leaf work-leaf" style="left: 35%; top: 75%;" data-node="agile" data-parent="work">
                         <svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
                         <span class="node-text">Agile/Scrum</span>
                     </div>
-                    <div class="bp-node leaf work-leaf" style="left: 35%; top: 91.66%;" data-node="git">
+                    <div class="bp-node leaf work-leaf" style="left: 35%; top: 91.66%;" data-node="git" data-parent="work">
                         <img src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub" class="node-icon" /> <span class="node-text">Git/GitHub</span>
                     </div>
-                    <div class="bp-node leaf work-leaf" style="left: 65%; top: 91.66%;" data-node="jira">
+                    <div class="bp-node leaf work-leaf" style="left: 65%; top: 91.66%;" data-node="jira" data-parent="work">
                         <img src="https://cdn.simpleicons.org/jira/ffffff" alt="Jira" class="node-icon" /> <span class="node-text">Jira/Data Tracking</span>
                     </div>
-                    <div class="bp-node leaf work-leaf" style="left: 65%; top: 75%;" data-node="figma">
+                    <div class="bp-node leaf work-leaf" style="left: 65%; top: 75%;" data-node="figma" data-parent="work">
                         <img src="https://cdn.simpleicons.org/figma/ffffff" alt="Figma" class="node-icon" /> <span class="node-text">Figma</span>
                     </div>
                 </div>
                 <!-- Overlay for expanded schematics -->
                 <div class="bp-modal-overlay" id="bp-modal-overlay"></div>
-                <div class="skills-mobile-grid">
-                    <div class="skills-mobile-category">
-                        <h3>Engineering</h3>
-                        <div class="skills-pill-grid">
-                            <span class="skill-pill">React</span>
-                            <span class="skill-pill">Django</span>
-                            <span class="skill-pill">Python</span>
-                            <span class="skill-pill">AI/LLMs</span>
-                            <span class="skill-pill">Docker</span>
-                        </div>
-                    </div>
-                    <div class="skills-mobile-category">
-                        <h3>Growth &amp; Ops</h3>
-                        <div class="skills-pill-grid">
-                            <span class="skill-pill">Lead Gen</span>
-                            <span class="skill-pill">CRM</span>
-                            <span class="skill-pill">Outreach</span>
-                            <span class="skill-pill">Sales</span>
-                        </div>
-                    </div>
-                    <div class="skills-mobile-category">
-                        <h3>Workflow</h3>
-                        <div class="skills-pill-grid">
-                            <span class="skill-pill">Agile/Scrum</span>
-                            <span class="skill-pill">Git/GitHub</span>
-                            <span class="skill-pill">Jira/Data Tracking</span>
-                            <span class="skill-pill">Figma</span>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 

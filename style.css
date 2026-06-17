@@ -899,15 +899,15 @@
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-            gap: 0; /* Remove gap for unified dock look */
+            gap: 0.8rem; 
             z-index: 5;
             width: max-content;
             max-width: 100%;
             background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            padding: 0.5rem;
-            border-radius: 100px;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 1rem;
+            border-radius: 24px;
             border: 1px solid rgba(255, 255, 255, 0.9);
             border-bottom-color: rgba(255, 255, 255, 0.2);
             border-right-color: rgba(255, 255, 255, 0.4);
@@ -924,8 +924,8 @@
 
         .floating-badge {
             position: relative;
-            background: transparent;
-            color: #555;
+            background: rgba(255, 255, 255, 0.4);
+            color: #444;
             border-radius: 100px;
             padding: 0.8rem 1.5rem;
             display: flex;
@@ -940,9 +940,9 @@
 
         .floating-badge:hover {
             transform: translateY(-2px);
-            background: #F4FBF0;
+            background: #ffffff;
             color: #1a1a1a;
-            box-shadow: 0 4px 12px rgba(123, 184, 64, 0.1);
+            box-shadow: 0 4px 16px rgba(123, 184, 64, 0.15);
         }
 
         .badge-icon {
@@ -1709,7 +1709,7 @@
         }
 
         .bp-line.line-visible {
-            stroke-dashoffset: 0;
+            stroke-dashoffset: 0 !important;
         }
 
         .bp-line.core-line {
@@ -3111,8 +3111,6 @@
         height: 38px !important;
     }
     .panel-action {
-        transform: scale(0.85) !important;
-        transform-origin: bottom right !important;
         right: 0 !important;
     }
 }
@@ -3212,33 +3210,35 @@ html { scroll-behavior: smooth; }
     .hero-divider { margin: 1.5rem auto; }
 
     /* Skills Blueprint */
-    .blueprint-container { display: none !important; }
-    .skills-mobile-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        margin-top: 2rem;
+    .blueprint-container {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 1.5rem !important;
+        position: relative;
+        height: auto !important;
+        padding: 2rem 0 4rem 0 !important;
     }
-    .skills-mobile-category h3 {
-        font-family: 'Clash Grotesk', sans-serif;
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-        color: var(--color-text-primary);
-        text-align: center;
+    .bp-node {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        transform: scale(0.9) !important;
+        margin: 0 !important;
     }
-    .skills-pill-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        justify-content: center;
+    .bp-node.node-visible {
+        transform: scale(1) !important;
     }
-    .skills-pill-grid span {
-        background: var(--color-bg-dark);
-        color: #fff;
-        padding: 0.5rem 1rem;
-        border-radius: var(--radius-btn);
-        font-size: 0.9rem;
-    }
+    .bp-node.hub { order: 1; margin-bottom: 2rem !important; }
+    .bp-node[data-node="eng"] { order: 2; width: 100%; margin-top: 2rem !important; }
+    .bp-node.eng-leaf { order: 3; width: auto !important; }
+    .bp-node[data-node="growth"] { order: 4; width: 100%; margin-top: 3rem !important; }
+    .bp-node.growth-leaf { order: 5; width: auto !important; }
+    .bp-node[data-node="work"] { order: 6; width: 100%; margin-top: 3rem !important; }
+    .bp-node.work-leaf { order: 7; width: auto !important; }
+
 
     /* Grids */
     .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
@@ -3295,12 +3295,19 @@ html { scroll-behavior: smooth; }
     
     .glass-panel.panel-action {
         display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
         left: 0 !important;
         right: 0 !important;
         margin: 0 auto !important;
-        bottom: 15px !important;
+        bottom: 20px !important;
         width: max-content !important;
-        justify-content: center !important;
+        padding: 0.8rem 1.5rem !important;
+    }
+    .panel-action .action-avatars img,
+    .panel-action .action-add {
+        min-height: 36px !important;
+        min-width: 36px !important;
     }
 
     /* Stats */

@@ -60,11 +60,117 @@
             const bpContainer = document.querySelector('.blueprint-container');
             if (bpContainer) {
                 const nodes = bpContainer.querySelectorAll('.bp-node');
-                const lines = bpContainer.querySelectorAll('.bp-line');
                 const overlay = document.getElementById('bp-modal-overlay');
                 let expandedNode = null;
                 let isAnimating = { eng: false, growth: false, workflow: false };
                 let hasLoaded = false;
+
+                const renderBlueprintConnections = () => {
+                    const bpSvg = document.getElementById('bp-svg');
+                    const bpLinesGroup = document.getElementById('bp-lines');
+                    const bpTriggersGroup = document.getElementById('bp-triggers');
+                    const bpParticlesGroup = document.getElementById('bp-particles');
+                    
+                    if (!bpLinesGroup || !bpSvg) return;
+                    
+                    bpLinesGroup.innerHTML = '';
+                    bpTriggersGroup.innerHTML = '';
+                    bpParticlesGroup.innerHTML = '';
+                    
+                    const containerRect = bpContainer.getBoundingClientRect();
+                    
+                    // Set SVG viewBox explicitly to prevent any browser intrinsic scaling
+                    bpSvg.setAttribute('viewBox', `0 0 ${containerRect.width} ${containerRect.height}`);
+                    
+                    nodes.forEach(node => {
+                        const parentId = node.dataset.parent;
+                        if (!parentId) return;
+                        
+                        const parentNode = bpContainer.querySelector(`.bp-node[data-node="${parentId}"]`);
+                        if (!parentNode) return;
+                        
+                        const nRect = node.getBoundingClientRect();
+                        const pRect = parentNode.getBoundingClientRect();
+                        
+                        // Calculate visual centers relative to the SVG container
+                        const x1 = pRect.left + (pRect.width / 2) - containerRect.left;
+                        const y1 = pRect.top + (pRect.height / 2) - containerRect.top;
+                        const x2 = nRect.left + (nRect.width / 2) - containerRect.left;
+                        const y2 = nRect.top + (nRect.height / 2) - containerRect.top;
+                        
+                        const nodeId = node.dataset.node;
+                        const isPrimary = node.classList.contains('primary');
+                        const branchName = isPrimary ? nodeId : parentId;
+                        
+                        // Calculate exact line length for flawless drawing animation
+                        const length = Math.hypot(x2 - x1, y2 - y1);
+                        
+                        // Create Line
+                        const line = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                        const lineClass = isPrimary ? 'core-line' : `${branchName}-line`;
+                        const lineId = isPrimary ? `p-h-${nodeId.charAt(0)}` : `p-${branchName.charAt(0)}-${nodeId.charAt(0)}`;
+                        
+                        // Preserve existing state on re-render to prevent hover glitches
+                        const existingLine = document.getElementById(lineId);
+                        const finalClasses = existingLine ? existingLine.getAttribute('class') : `bp-line ${lineClass} ${hasLoaded ? 'line-visible' : ''}`;
+                        
+                        line.setAttribute('class', finalClasses.trim());
+                        line.setAttribute('id', lineId);
+                        line.setAttribute('d', `M${x1},${y1} L${x2},${y2}`);
+                        line.setAttribute('data-source', parentId);
+                        line.setAttribute('data-target', nodeId);
+                        
+                        // Apply precise dash offset for animation
+                        line.style.strokeDasharray = length;
+                        line.style.strokeDashoffset = length;
+                        
+                        bpLinesGroup.appendChild(line);
+                        
+                        // If it's a primary node, create trigger particle
+                        if (isPrimary) {
+                            const trig = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                            trig.setAttribute('class', `bp-trigger ${branchName}-hub`);
+                            trig.setAttribute('id', `trig-${branchName}`);
+                            trig.setAttribute('r', '6');
+                            trig.setAttribute('opacity', '0');
+                            
+                            const anim = document.createElementNS('http://www.w3.org/2000/svg', 'animateMotion');
+                            anim.setAttribute('id', `anim-trig-${branchName}`);
+                            anim.setAttribute('dur', '0.6s');
+                            anim.setAttribute('begin', 'indefinite');
+                            anim.setAttribute('path', `M${x1},${y1} L${x2},${y2}`);
+                            anim.setAttribute('fill', 'freeze');
+                            
+                            trig.appendChild(anim);
+                            bpTriggersGroup.appendChild(trig);
+                        }
+                        
+                        // Create Continuous Particles (WAVE 1 and WAVE 2)
+                        const pClass = isPrimary ? `${branchName}-hub` : `${branchName}-particle`;
+                        const pRadius = isPrimary ? '4' : '3';
+                        
+                        [0, 1.0].forEach(delay => {
+                            const particle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                            particle.setAttribute('class', `bp-particle ${pClass}`);
+                            particle.setAttribute('r', pRadius);
+                            
+                            const motion = document.createElementNS('http://www.w3.org/2000/svg', 'animateMotion');
+                            motion.setAttribute('dur', '2.0s');
+                            motion.setAttribute('begin', `${delay}s`);
+                            motion.setAttribute('repeatCount', 'indefinite');
+                            motion.setAttribute('path', `M${x1},${y1} L${x2},${y2}`);
+                            
+                            particle.appendChild(motion);
+                            bpParticlesGroup.appendChild(particle);
+                        });
+                    });
+                };
+                
+                // Render on init and window resize
+                renderBlueprintConnections();
+                window.addEventListener('resize', () => {
+                    requestAnimationFrame(renderBlueprintConnections);
+                });
 
                 const triggerBranch = (branchId, isReplay = false) => {
                     if (isReplay && isAnimating[branchId]) return;
@@ -116,6 +222,10 @@
 
                 const startInitialSequence = () => {
                     if (hasLoaded) return;
+                    
+                    // Re-render lines just in case fonts or initial layout caused shifts
+                    renderBlueprintConnections();
+                    
                     hasLoaded = true;
                     
                     const hub = bpContainer.querySelector('.hub');
@@ -159,7 +269,7 @@
                         }
                         
                         if (node.classList.contains('primary') || node.classList.contains('hub')) {
-                            lines.forEach(line => {
+                            bpContainer.querySelectorAll('.bp-line').forEach(line => {
                                 if (line.dataset.source === nodeId || line.dataset.target === nodeId) {
                                     line.classList.add('active');
                                     bpContainer.querySelectorAll(`.bp-node[data-node="${line.dataset.target}"], .bp-node[data-node="${line.dataset.source}"]`).forEach(n => n.classList.add('active'));
@@ -172,7 +282,7 @@
                         if (expandedNode) return;
                         bpContainer.classList.remove('has-hover', 'theme-eng', 'theme-growth');
                         nodes.forEach(n => n.classList.remove('active'));
-                        lines.forEach(l => l.classList.remove('active'));
+                        bpContainer.querySelectorAll('.bp-line').forEach(l => l.classList.remove('active'));
                     });
                 });
 
@@ -211,7 +321,7 @@
                     // Clear hover states
                     bpContainer.classList.remove('has-hover', 'theme-eng', 'theme-growth');
                     nodes.forEach(n => n.classList.remove('active'));
-                    lines.forEach(l => l.classList.remove('active'));
+                    bpContainer.querySelectorAll('.bp-line').forEach(l => l.classList.remove('active'));
                 };
 
                 bpContainer.querySelectorAll('.bp-node.primary').forEach(node => {
