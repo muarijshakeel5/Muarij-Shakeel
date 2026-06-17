@@ -3219,6 +3219,7 @@ html { scroll-behavior: smooth; }
         gap: 1.5rem !important;
         position: relative;
         height: auto !important;
+        aspect-ratio: auto !important;
         padding: 2rem 0 4rem 0 !important;
     }
     .bp-node {
