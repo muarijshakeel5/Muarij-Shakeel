@@ -78,10 +78,12 @@
                     bpParticlesGroup.innerHTML = '';
                     
                     const containerRect = bpContainer.getBoundingClientRect();
-                    
-                    // Set SVG viewBox explicitly to prevent any browser intrinsic scaling
-                    bpSvg.setAttribute('viewBox', `0 0 ${containerRect.width} ${containerRect.height}`);
-                    
+                    const SPEED = 130; // pixels per second
+                    const primaryTravelTimes = {};
+                    const nodeData = [];
+                    let maxEndTime = 0;
+
+                    // Pass 1: Calculate coordinates, travel times, and find max cycle time
                     nodes.forEach(node => {
                         const parentId = node.dataset.parent;
                         if (!parentId) return;
@@ -89,10 +91,9 @@
                         const parentNode = bpContainer.querySelector(`.bp-node[data-node="${parentId}"]`);
                         if (!parentNode) return;
                         
-                        const nRect = node.getBoundingClientRect();
                         const pRect = parentNode.getBoundingClientRect();
+                        const nRect = node.getBoundingClientRect();
                         
-                        // Calculate visual centers relative to the SVG container
                         const x1 = pRect.left + (pRect.width / 2) - containerRect.left;
                         const y1 = pRect.top + (pRect.height / 2) - containerRect.top;
                         const x2 = nRect.left + (nRect.width / 2) - containerRect.left;
@@ -102,8 +103,33 @@
                         const isPrimary = node.classList.contains('primary');
                         const branchName = isPrimary ? nodeId : parentId;
                         
-                        // Calculate exact line length for flawless drawing animation
                         const length = Math.hypot(x2 - x1, y2 - y1);
+                        const travelTime = length / SPEED;
+                        
+                        if (isPrimary) {
+                            primaryTravelTimes[nodeId] = travelTime;
+                            node.dataset.trigDur = travelTime;
+                        }
+                        
+                        // We must estimate endTime for this node. If it's a leaf, we need parent's travel time.
+                        // Since primary nodes appear first in DOM, primaryTravelTimes[parentId] will be ready.
+                        const startTime = isPrimary ? 0 : (primaryTravelTimes[parentId] || 0);
+                        const endTime = startTime + travelTime;
+                        
+                        if (endTime > maxEndTime) maxEndTime = endTime;
+                        
+                        nodeData.push({ node, parentId, x1, y1, x2, y2, nodeId, isPrimary, branchName, length, travelTime, startTime, endTime });
+                    });
+                    
+                    // Add a 1.0s buffer to the longest path for a perfect organic looping pause
+                    const CYCLE_TIME = Math.max(5.0, maxEndTime + 1.0);
+                    
+                    // Set SVG viewBox explicitly to prevent any browser intrinsic scaling
+                    bpSvg.setAttribute('viewBox', `0 0 ${containerRect.width} ${containerRect.height}`);
+                    
+                    // Pass 2: Generate SVG elements with mathematically safe cycle times
+                    nodeData.forEach(data => {
+                        const { node, parentId, x1, y1, x2, y2, nodeId, isPrimary, branchName, length, travelTime, startTime, endTime } = data;
                         
                         // Create Line
                         const line = document.createElementNS('http://www.w3.org/2000/svg', 'path');
@@ -136,7 +162,7 @@
                             
                             const anim = document.createElementNS('http://www.w3.org/2000/svg', 'animateMotion');
                             anim.setAttribute('id', `anim-trig-${branchName}`);
-                            anim.setAttribute('dur', '0.6s');
+                            anim.setAttribute('dur', `${travelTime}s`);
                             anim.setAttribute('begin', 'indefinite');
                             anim.setAttribute('path', `M${x1},${y1} L${x2},${y2}`);
                             anim.setAttribute('fill', 'freeze');
@@ -145,22 +171,55 @@
                             bpTriggersGroup.appendChild(trig);
                         }
                         
-                        // Create Continuous Particles (WAVE 1 and WAVE 2)
+                        // Create Continuous Particles (Synchronized cascading wave)
                         const pClass = isPrimary ? `${branchName}-hub` : `${branchName}-particle`;
                         const pRadius = isPrimary ? '4' : '3';
                         
-                        [0, 1.0].forEach(delay => {
+                        const fs = startTime / CYCLE_TIME;
+                        const fe = endTime / CYCLE_TIME;
+                        
+                        [0, CYCLE_TIME / 2].forEach(offset => {
                             const particle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
                             particle.setAttribute('class', `bp-particle ${pClass}`);
                             particle.setAttribute('r', pRadius);
                             
                             const motion = document.createElementNS('http://www.w3.org/2000/svg', 'animateMotion');
-                            motion.setAttribute('dur', '2.0s');
-                            motion.setAttribute('begin', `${delay}s`);
+                            motion.setAttribute('dur', `${CYCLE_TIME}s`);
+                            motion.setAttribute('begin', `${offset}s`);
                             motion.setAttribute('repeatCount', 'indefinite');
                             motion.setAttribute('path', `M${x1},${y1} L${x2},${y2}`);
+                            motion.setAttribute('calcMode', 'linear');
+                            
+                            let motionKeyTimes, motionKeyPoints, opacityKeyTimes, opacityValues;
+                            // Clamp fractions tightly just to be safe against floating point math
+                            const safeFe = Math.min(fe, 1);
+                            const safeFs = Math.min(fs, 1);
+                            
+                            if (safeFs === 0) {
+                                motionKeyTimes = `0; ${safeFe}; 1`;
+                                motionKeyPoints = `0; 1; 1`;
+                                opacityKeyTimes = `0; ${Math.max(0, safeFe - 0.001)}; ${safeFe}; 1`;
+                                opacityValues = `1; 1; 0; 0`;
+                            } else {
+                                motionKeyTimes = `0; ${safeFs}; ${safeFe}; 1`;
+                                motionKeyPoints = `0; 0; 1; 1`;
+                                opacityKeyTimes = `0; ${Math.max(0, safeFs - 0.001)}; ${safeFs}; ${Math.max(0, safeFe - 0.001)}; ${safeFe}; 1`;
+                                opacityValues = `0; 0; 1; 1; 0; 0`;
+                            }
+                            
+                            motion.setAttribute('keyTimes', motionKeyTimes);
+                            motion.setAttribute('keyPoints', motionKeyPoints);
+                            
+                            const opacityAnim = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+                            opacityAnim.setAttribute('attributeName', 'opacity');
+                            opacityAnim.setAttribute('dur', `${CYCLE_TIME}s`);
+                            opacityAnim.setAttribute('begin', `${offset}s`);
+                            opacityAnim.setAttribute('repeatCount', 'indefinite');
+                            opacityAnim.setAttribute('keyTimes', opacityKeyTimes);
+                            opacityAnim.setAttribute('values', opacityValues);
                             
                             particle.appendChild(motion);
+                            particle.appendChild(opacityAnim);
                             bpParticlesGroup.appendChild(particle);
                         });
                     });
@@ -199,6 +258,8 @@
                         if (triggerParticle) triggerParticle.classList.add('active');
                         if (animTrigger) animTrigger.beginElement();
 
+                        const trigDurMs = parseFloat(primaryNode.dataset.trigDur) * 1000;
+
                         setTimeout(() => {
                             if (triggerParticle) triggerParticle.classList.remove('active');
                             if (!isReplay && primaryNode) primaryNode.classList.add('node-visible');
@@ -216,7 +277,7 @@
                                     isAnimating[branchId] = false;
                                 }, 1000);
                             }
-                        }, 600); // Trigger particle duration matches animateMotion dur
+                        }, trigDurMs); // Dynamic timing based on precise math calculation
                     }, 50);
                 };
 
@@ -231,13 +292,17 @@
                     const hub = bpContainer.querySelector('.hub');
                     if (hub) hub.classList.add('node-visible');
 
-                    setTimeout(() => triggerBranch('eng'), 250);
-                    setTimeout(() => triggerBranch('growth'), 500);
-                    setTimeout(() => triggerBranch('work'), 750);
+                    // Trigger all branches simultaneously. Because they use a constant speed calculation,
+                    // they will organically hit their nodes and trigger their leaves at exactly the right times!
+                    setTimeout(() => {
+                        triggerBranch('eng');
+                        triggerBranch('growth');
+                        triggerBranch('work');
+                    }, 250);
                     
                     setTimeout(() => {
                         bpContainer.classList.add('streams-active');
-                    }, 2000);
+                    }, 2500);
                 };
 
                 const bpObserver = new IntersectionObserver(entries => {
