@@ -443,11 +443,6 @@
             const errorMsg = document.getElementById('form-error');
 
             if (form) {
-                // Replace with your EmailJS public key
-                if (typeof emailjs !== 'undefined') {
-                    emailjs.init("YOUR_PUBLIC_KEY");
-                }
-
                 form.addEventListener('submit', e => {
                     e.preventDefault();
                     
@@ -466,28 +461,36 @@
                     btn.disabled = true;
                     if (successMsg) successMsg.style.display = 'none';
                     if (errorMsg) errorMsg.style.display = 'none';
-                    
-                    if (typeof emailjs === 'undefined') {
-                        console.error('EmailJS SDK not loaded.');
+
+                    fetch('https://formsubmit.co/ajax/muarijshakeel5@gmail.com', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            name: name,
+                            email: email,
+                            message: message,
+                            _subject: "New Contact Form Submission from Portfolio"
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success || data.success === "true") {
+                            form.reset();
+                            if (successMsg) successMsg.style.display = 'block';
+                            btn.textContent = 'Message Sent ✓';
+                        } else {
+                            throw new Error('Submission failed');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
                         btn.textContent = originalBtnText;
                         btn.disabled = false;
                         if (errorMsg) errorMsg.style.display = 'block';
-                        return;
-                    }
-
-                    // Replace with your EmailJS service ID, template ID
-                    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form)
-                        .then(() => {
-                            form.reset();
-                            btn.style.display = 'none';
-                            if (successMsg) successMsg.style.display = 'block';
-                        })
-                        .catch((error) => {
-                            console.error('EmailJS Error:', error);
-                            btn.textContent = originalBtnText;
-                            btn.disabled = false;
-                            if (errorMsg) errorMsg.style.display = 'block';
-                        });
+                    });
                 });
             }
 

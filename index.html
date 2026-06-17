@@ -16,7 +16,7 @@
     <meta property="og:type" content="website" />
     <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@200,300,400,500,600,700,800&display=swap"
         rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -530,10 +530,10 @@
                                     placeholder="Tell me about your project…"></textarea></div>
                             <button type="submit" class="btn btn-primary" style="align-self:flex-start" id="submitBtn">Send Message
                                 →</button>
-                            <p id="form-success"
+                            <p id="form-success" role="status" aria-live="polite"
                                 style="display:none;color:var(--color-accent-dark);font-size:.88rem;font-weight:600">✓
                                 Message sent! I'll get back to you shortly.</p>
-                            <p id="form-error"
+                            <p id="form-error" role="alert" aria-live="assertive"
                                 style="display:none;color:#e74c3c;font-size:.88rem;font-weight:600">✗
                                 Failed to send message. Please try again.</p>
                         </form>
@@ -559,7 +559,6 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="main.js" defer></script>
 </body>
 
